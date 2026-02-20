@@ -1,0 +1,128 @@
+.legal-page {
+  min-height: 100vh;
+  background: var(--main-bg);
+  padding: 2rem 1rem;
+}
+
+.legal-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  border-radius: calc(var(--radius) * 2);
+  padding: 2.5rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.legal-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  transition: opacity 0.15s ease;
+}
+
+.legal-back:hover {
+  opacity: 0.8;
+}
+
+.legal-page h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 0.5rem;
+}
+
+.legal-updated {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin: 0 0 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.legal-page section {
+  margin-bottom: 2rem;
+}
+
+.legal-page h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 0.75rem;
+}
+
+.legal-page h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 1rem 0 0.5rem;
+}
+
+.legal-page p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  margin: 0 0 0.75rem;
+}
+
+.legal-page ul {
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+}
+
+.legal-page li {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  margin-bottom: 0.375rem;
+}
+
+.legal-page li strong {
+  color: var(--text);
+}
+
+.legal-page a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.legal-page a:hover {
+  text-decoration: underline;
+}
+
+.legal-footer {
+  display: flex;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.legal-footer a {
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .legal-container {
+    padding: 1.5rem;
+    border-radius: var(--radius);
+  }
+
+  .legal-page h1 {
+    font-size: 1.5rem;
+  }
+
+  .legal-page h2 {
+    font-size: 1.125rem;
+  }
+
+  .legal-footer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
