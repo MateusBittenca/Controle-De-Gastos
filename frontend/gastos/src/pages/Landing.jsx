@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Landing.css'
 
@@ -53,6 +54,67 @@ const features = [
   },
 ]
 
+const faqItems = [
+  {
+    pergunta: 'O Controle de Gastos é realmente gratuito?',
+    resposta: 'Sim! O Controle de Gastos é 100% gratuito. Não há taxas escondidas, período de teste ou necessidade de cartão de crédito para usar todas as funcionalidades.'
+  },
+  {
+    pergunta: 'Meus dados financeiros estão seguros?',
+    resposta: 'Absolutamente. Utilizamos criptografia bcrypt para senhas, conexões HTTPS, e cada usuário acessa apenas seus próprios dados. Não vendemos nem compartilhamos suas informações com terceiros.'
+  },
+  {
+    pergunta: 'Posso acessar pelo celular?',
+    resposta: 'Sim! O sistema é totalmente responsivo e funciona em qualquer dispositivo. Você também pode instalar como um app no celular através do navegador (PWA).'
+  },
+  {
+    pergunta: 'Posso exportar meus dados?',
+    resposta: 'Sim, você pode exportar todos os seus gastos e receitas em formato CSV a qualquer momento, permitindo análise em Excel ou outras ferramentas.'
+  },
+  {
+    pergunta: 'Como funcionam os gastos recorrentes?',
+    resposta: 'Você cadastra despesas fixas como aluguel, internet, streaming, etc., e o sistema gera automaticamente os lançamentos no dia configurado. O mesmo vale para receitas recorrentes como salário.'
+  },
+  {
+    pergunta: 'Posso criar categorias personalizadas?',
+    resposta: 'Sim! Você pode criar quantas categorias quiser, definir cores e ícones para cada uma, e até estabelecer um orçamento mensal por categoria.'
+  }
+]
+
+function FAQItem({ pergunta, resposta }) {
+  const [aberto, setAberto] = useState(false)
+  
+  return (
+    <div className={`faq-item ${aberto ? 'faq-item-aberto' : ''}`}>
+      <button
+        type="button"
+        className="faq-pergunta"
+        onClick={() => setAberto(!aberto)}
+        aria-expanded={aberto}
+      >
+        <span>{pergunta}</span>
+        <svg 
+          className="faq-icon" 
+          width="20" 
+          height="20" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2" 
+          strokeLinecap="round" 
+          strokeLinejoin="round"
+          aria-hidden
+        >
+          <polyline points={aberto ? "18 15 12 9 6 15" : "6 9 12 15 18 9"} />
+        </svg>
+      </button>
+      <div className="faq-resposta" aria-hidden={!aberto}>
+        <p>{resposta}</p>
+      </div>
+    </div>
+  )
+}
+
 function Landing() {
   return (
     <div className="landing">
@@ -98,6 +160,15 @@ function Landing() {
           </div>
         </section>
 
+        <section className="landing-faq-section" aria-labelledby="faq-title">
+          <h2 id="faq-title" className="landing-faq-heading">Perguntas Frequentes</h2>
+          <div className="landing-faq-list">
+            {faqItems.map((item, i) => (
+              <FAQItem key={i} pergunta={item.pergunta} resposta={item.resposta} />
+            ))}
+          </div>
+        </section>
+
         <section className="landing-cta-section">
           <p className="landing-cta-section-text">Pronto para começar?</p>
           <Link to="/cadastro" className="landing-cta-btn landing-cta-btn-primary landing-cta-btn-large">
@@ -112,6 +183,9 @@ function Landing() {
           <div className="landing-footer-links">
             <Link to="/login">Entrar</Link>
             <Link to="/cadastro">Cadastrar</Link>
+            <Link to="/termos">Termos de Uso</Link>
+            <Link to="/privacidade">Privacidade</Link>
+            <Link to="/contato">Contato</Link>
           </div>
           <p className="landing-footer-copy">© {new Date().getFullYear()} · Seus dados ficam sob seu controle</p>
         </div>
