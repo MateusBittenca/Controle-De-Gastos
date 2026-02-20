@@ -1,0 +1,382 @@
+.configuracoes .card-text {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.configuracoes-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.configuracoes-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+
+.configuracoes-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.configuracoes-select {
+  width: 100%;
+  max-width: 280px;
+  box-sizing: border-box;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%235d6d7e' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2rem;
+}
+
+.configuracoes-select:hover {
+  border-color: rgba(44, 62, 80, 0.2);
+}
+
+.configuracoes-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.12);
+}
+
+.configuracoes-select option {
+  color: var(--text-primary);
+}
+
+@media (max-width: 480px) {
+  .configuracoes-select {
+    max-width: none;
+  }
+}
+
+.configuracoes-hint {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+.config-cat-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.config-cat-input {
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--input-bg);
+  color: var(--text);
+  font-size: 0.9375rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.config-cat-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+}
+
+.config-cat-input-sm {
+  padding: 0.5rem 0.625rem;
+  font-size: 0.875rem;
+}
+
+.config-cat-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.config-cat-picker label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.config-cat-picker-inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.config-cat-picker-inline label {
+  display: none;
+}
+
+.config-cat-icons,
+.config-cat-colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.config-cat-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  font-size: 1.375rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.config-cat-icon-btn:hover {
+  border-color: var(--primary);
+  background: var(--bg-secondary);
+}
+
+.config-cat-icon-btn.active {
+  border-color: var(--primary);
+  background: rgba(67, 97, 238, 0.1);
+  box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+}
+
+.config-cat-icon-btn-sm {
+  width: 28px;
+  height: 28px;
+  font-size: 0.875rem;
+}
+
+.config-cat-color-btn {
+  width: 32px;
+  height: 32px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.config-cat-color-btn:hover {
+  transform: scale(1.15);
+}
+
+.config-cat-color-btn.active {
+  border-color: var(--text);
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--text);
+}
+
+.config-cat-color-btn-sm {
+  width: 22px;
+  height: 22px;
+}
+
+.config-cat-btn {
+  padding: 0.625rem 1.25rem;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+.config-cat-btn:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.config-cat-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.config-cat-btn-secondary {
+  background: var(--bg-secondary);
+  color: var(--text);
+}
+
+.config-cat-btn-secondary:hover:not(:disabled) {
+  background: var(--border);
+}
+
+.config-cat-btn-sm {
+  padding: 0.5rem 0.875rem;
+  font-size: 0.8125rem;
+}
+
+.config-cat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.config-cat-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.config-cat-item:hover {
+  border-color: var(--primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.config-cat-info {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.config-cat-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--bg-secondary);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.config-cat-icon-display {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.config-cat-color-dot {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+}
+
+.config-cat-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+}
+
+.config-cat-name {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.config-cat-budget {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.config-cat-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.config-cat-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.config-cat-action:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.config-cat-action-danger:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.config-cat-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.config-cat-edit-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+@media (max-width: 640px) {
+  .config-cat-form {
+    padding: 0.875rem;
+  }
+
+  .config-cat-icon-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.125rem;
+  }
+
+  .config-cat-color-btn {
+    width: 28px;
+    height: 28px;
+  }
+
+  .config-cat-item {
+    padding: 0.75rem;
+  }
+
+  .config-cat-icon-wrap {
+    width: 40px;
+    height: 40px;
+  }
+
+  .config-cat-icon-display {
+    font-size: 1.25rem;
+  }
+
+  .config-cat-actions {
+    gap: 0.375rem;
+  }
+
+  .config-cat-action {
+    width: 28px;
+    height: 28px;
+  }
+}

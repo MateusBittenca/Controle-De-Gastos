@@ -1,0 +1,403 @@
+.relatorios .card-text {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.relatorios .card-erro .card-text {
+  color: var(--text-primary);
+}
+
+.relatorios-loading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.relatorios-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.relatorios-btn-export {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: var(--primary);
+  color: var(--sidebar-text);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.relatorios-btn-export:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.relatorios-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 900px) {
+  .relatorios-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .relatorios-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .relatorios-btn-export {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .relatorios-chart-mes .relatorios-chart-row-mes {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .relatorios-chart-mes-valores {
+    flex-wrap: wrap;
+  }
+
+  .relatorios-pizza-wrap {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .relatorios-pizza {
+    width: 160px;
+    height: 160px;
+  }
+
+  .relatorios-pizza-legenda {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .relatorios-colunas {
+    gap: 0.25rem;
+    min-height: 120px;
+  }
+
+  .relatorios-coluna-bars {
+    max-width: 32px;
+  }
+
+  .relatorios-coluna-label {
+    font-size: 0.7rem;
+  }
+
+  .relatorios-coluna-valor {
+    font-size: 0.75rem;
+  }
+}
+
+.relatorios-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.relatorios-chart-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.relatorios-chart-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.relatorios-chart-nome {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.relatorios-chart-valor {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.relatorios-chart-bar-wrap {
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.relatorios-chart-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.relatorios-chart-bar-gasto {
+  background: var(--danger);
+}
+
+.relatorios-chart-bar-receita {
+  background: var(--success);
+}
+
+/* Por mês: duas barras lado a lado */
+.relatorios-chart-mes .relatorios-chart-row-mes {
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.relatorios-chart-mes-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.relatorios-chart-bars {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  min-height: 24px;
+}
+
+.relatorios-chart-bar-wrap-inline {
+  flex: 1;
+  max-width: 120px;
+  height: 10px;
+}
+
+.relatorios-chart-mes-valores {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.relatorios-valor-gasto {
+  color: var(--danger);
+  min-width: 70px;
+}
+
+.relatorios-valor-receita {
+  color: var(--success);
+  min-width: 70px;
+}
+
+.relatorios-legenda {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.relatorios-legenda-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.relatorios-legenda-cor {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.relatorios-legenda-gasto {
+  background: var(--danger);
+}
+
+.relatorios-legenda-receita {
+  background: var(--success);
+}
+
+/* Saldo por mês – gráfico de colunas */
+.relatorios-colunas {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-height: 140px;
+  padding: 0 0.25rem;
+}
+
+.relatorios-coluna-mes {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.relatorios-coluna-bars {
+  width: 100%;
+  max-width: 44px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.relatorios-coluna-top {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 0;
+}
+
+.relatorios-coluna-bar {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  min-height: 2px;
+  transition: height 0.3s ease;
+}
+
+.relatorios-coluna-bar-pos {
+  background: var(--success);
+}
+
+.relatorios-coluna-bar-neg {
+  background: var(--danger);
+  border-radius: 0 0 4px 4px;
+}
+
+.relatorios-coluna-zero {
+  height: 2px;
+  background: var(--text-secondary);
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.relatorios-coluna-bottom {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 0;
+}
+
+.relatorios-coluna-bottom .relatorios-coluna-bar {
+  border-radius: 0 0 4px 4px;
+}
+
+.relatorios-coluna-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.relatorios-coluna-valor {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.relatorios-chart-dica {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* Top 5 – gráfico de pizza */
+.relatorios-pizza-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.relatorios-pizza {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.relatorios-pizza-legenda {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  min-width: 180px;
+}
+
+.relatorios-pizza-legenda-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0;
+  font-size: 0.85rem;
+}
+
+.relatorios-pizza-legenda-cor {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.relatorios-pizza-legenda-text {
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+}
+
+.relatorios-pizza-legenda-valor {
+  font-weight: 600;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.relatorios-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.relatorios-lista-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.relatorios-lista-item:last-child {
+  border-bottom: none;
+}
+
+.relatorios-lista-nome {
+  color: var(--text-primary);
+}
+
+.relatorios-lista-valor {
+  color: var(--text-secondary);
+  font-weight: 500;
+}

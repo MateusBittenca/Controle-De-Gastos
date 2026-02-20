@@ -1,0 +1,276 @@
+.dashboard .card-text {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.dashboard .card-erro .card-text {
+  color: var(--text-primary);
+}
+
+.dashboard .card-erro-dica {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.dashboard-loading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.dashboard-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.dashboard-filtro {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dashboard-select {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--card-bg);
+  color: var(--text-primary);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.dashboard-select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.dashboard-card {
+  position: relative;
+}
+
+.dashboard-card-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  display: block;
+  transition: box-shadow 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
+}
+
+.dashboard-card-link:hover {
+  box-shadow: 0 6px 16px rgba(44, 62, 80, 0.12);
+  transform: translateY(-2px);
+}
+
+.dashboard-card-link:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.dashboard-card-hint {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.dashboard-card-link:hover .dashboard-card-hint {
+  text-decoration: underline;
+}
+
+.dashboard-grid .dashboard-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.dashboard-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-card-top .card-title {
+  margin-bottom: 0;
+}
+
+.dashboard-card-icon {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.dashboard-card-icon-gasto {
+  color: var(--danger);
+}
+
+.dashboard-card-icon-receita {
+  color: var(--success);
+}
+
+.dashboard-cards .card-value {
+  font-size: 1.5rem;
+}
+
+.card-value-gasto {
+  color: var(--danger);
+}
+
+.card-value-receita {
+  color: var(--success);
+}
+
+.card-value-saldo-pos {
+  color: var(--success);
+}
+
+.card-value-saldo-neg {
+  color: var(--danger);
+}
+
+.card-meta {
+  margin-bottom: 1rem;
+}
+
+.dashboard-meta-valores {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-meta-de {
+  color: var(--text-secondary);
+}
+
+.dashboard-meta-bar {
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.dashboard-meta-bar-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.dashboard-meta-alerta {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--danger);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .dashboard-filtro {
+    flex-wrap: wrap;
+  }
+
+  .dashboard-select {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-lista-item {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 0.25rem 0.75rem;
+  }
+
+  .dashboard-lista-desc {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .dashboard-lista-valor {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: right;
+  }
+
+  .dashboard-lista-data {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    font-size: 0.75rem;
+  }
+}
+
+.dashboard-lista {
+  list-style: none;
+  margin: 0 0 0.75rem 0;
+  padding: 0;
+}
+
+.dashboard-lista-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.dashboard-lista-item:last-child {
+  border-bottom: none;
+}
+
+.dashboard-lista-desc {
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dashboard-lista-valor {
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.dashboard-lista-data {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.dashboard-link {
+  font-size: 0.9rem;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.dashboard-card-link:hover .dashboard-link {
+  text-decoration: underline;
+}

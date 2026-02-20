@@ -1,0 +1,208 @@
+.app-loading {
+  min-height: 100vh;
+  min-height: calc(100vh - env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--main-bg);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+.app-loading .app-spinner {
+  margin-right: 0.75rem;
+}
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  min-height: calc(100vh - env(safe-area-inset-bottom));
+  position: relative;
+}
+
+/* Backdrop do drawer (só visível em mobile quando menu aberto) */
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.sidebar-backdrop[data-visible="true"] {
+  display: block;
+  opacity: 1;
+}
+
+@media (min-width: 769px) {
+  .sidebar-backdrop {
+    display: none !important;
+  }
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+  min-height: 100vh;
+  background: var(--main-bg);
+  padding: 2rem 2.5rem;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  transition: background var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content-inner {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Botão hamburger (só em mobile) */
+.mobile-menu-btn {
+  display: none;
+  position: fixed;
+  top: calc(1rem + env(safe-area-inset-top));
+  left: 1rem;
+  z-index: 100;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--card-bg);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.mobile-menu-btn:hover {
+  background: var(--primary-muted);
+}
+
+.mobile-menu-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .main-content {
+    padding: 3.25rem 1rem 1.5rem;
+    padding-top: calc(3.25rem + env(safe-area-inset-top));
+    padding-left: calc(1rem + env(safe-area-inset-left));
+    padding-right: calc(1rem + env(safe-area-inset-right));
+    padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-left: calc(0.75rem + env(safe-area-inset-left));
+    padding-right: calc(0.75rem + env(safe-area-inset-right));
+  }
+}
+
+.page-header {
+  margin-bottom: 1.5rem;
+}
+
+.page-header h1 {
+  font-size: clamp(1.35rem, 4vw, 1.6rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.page-header p {
+  margin-top: 0.35rem;
+  font-size: 0.925rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08), 0 4px 16px rgba(44, 62, 80, 0.06);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+[data-theme="dark"] .card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 769px) {
+  .card {
+    padding: 1.5rem 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 1rem 1.15rem;
+  }
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(44, 62, 80, 0.12), 0 8px 24px rgba(44, 62, 80, 0.08);
+  border-color: rgba(44, 62, 80, 0.15);
+}
+
+[data-theme="dark"] .card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.card-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.85rem;
+}
+
+.card-value {
+  font-size: clamp(1.4rem, 4vw, 1.75rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.card-erro {
+  background: var(--danger-bg);
+  border: 1px solid rgba(192, 57, 43, 0.2);
+}
+
+.card-erro .card-text {
+  color: var(--danger);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}

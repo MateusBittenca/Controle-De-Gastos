@@ -1,0 +1,388 @@
+.gastos .card-text {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.gastos .card-erro .card-text {
+  color: var(--text-primary);
+}
+
+.gastos-form-card {
+  margin-bottom: 1.5rem;
+}
+
+.gastos-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .gastos-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gastos-select {
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .gastos-filtros {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .gastos-busca {
+    min-width: 0;
+    max-width: none;
+  }
+
+  .gastos-filtro {
+    max-width: none;
+  }
+
+  .gastos-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .gastos-acao span:last-child {
+    display: none;
+  }
+
+  .gastos-modal {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .gastos-modal-form .gastos-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gastos-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.gastos-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.gastos-input,
+.gastos-select {
+  padding: 0.5rem 0.65rem;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.gastos-input:focus,
+.gastos-select:focus {
+  border-color: var(--sidebar-hover);
+}
+
+.gastos-select {
+  max-width: 200px;
+  background: var(--card-bg);
+}
+
+.gastos-form-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.gastos-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.gastos-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.gastos-btn-primary {
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+}
+
+.gastos-btn-primary:hover:not(:disabled) {
+  background: var(--sidebar-hover);
+}
+
+.gastos-btn-secondary {
+  background: var(--main-bg);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+.gastos-btn-secondary:hover:not(:disabled) {
+  background: var(--border);
+}
+
+.gastos-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.gastos-busca {
+  min-width: 220px;
+  flex: 1;
+  max-width: 280px;
+}
+
+.gastos-filtro {
+  max-width: 180px;
+}
+
+.gastos-total-filtro {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.gastos-tabela-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+  .gastos-tabela-wrap {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+.gastos-tabela {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.gastos-tabela th,
+.gastos-tabela td {
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.gastos-tabela th {
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.gastos-tabela tbody tr:hover {
+  background: rgba(44, 62, 80, 0.03);
+}
+
+.gastos-valor-col {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.gastos-acoes {
+  white-space: nowrap;
+  padding: 0.5rem 0.25rem 0.5rem 0;
+}
+
+.gastos-acoes .gastos-acao {
+  margin-left: 0.25rem;
+}
+
+.gastos-acao {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  background: transparent;
+  color: var(--text-secondary);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.gastos-acao:first-child {
+  margin-left: 0;
+}
+
+.gastos-acao svg {
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+.gastos-acao-editar:hover {
+  background: rgba(44, 62, 80, 0.08);
+  color: var(--primary);
+}
+
+.gastos-acao-editar:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.gastos-acao-excluir:hover {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+.gastos-acao-excluir:focus-visible {
+  outline: 2px solid var(--danger);
+  outline-offset: 2px;
+}
+
+/* Modal de edição – compacto para caber na tela sem scroll */
+.gastos-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 37, 47, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: gastos-modal-fadeIn 0.2s ease;
+}
+
+@keyframes gastos-modal-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.gastos-modal {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 20px 40px rgba(44, 62, 80, 0.2);
+  width: 100%;
+  max-width: 480px;
+  overflow: hidden;
+  animation: gastos-modal-slideIn 0.25s ease;
+}
+
+@keyframes gastos-modal-slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gastos-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.gastos-modal-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.gastos-modal-fechar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.gastos-modal-fechar:hover {
+  background: var(--primary-muted);
+  color: var(--text-primary);
+}
+
+.gastos-modal-form {
+  padding: 1rem;
+}
+
+.gastos-modal-form .gastos-form-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+  margin-bottom: 0.65rem;
+}
+
+.gastos-modal-form .gastos-form-grid .gastos-field {
+  min-width: 0;
+}
+
+.gastos-modal-form .gastos-input,
+.gastos-modal-form .gastos-select {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.gastos-modal-form .gastos-field {
+  gap: 0.25rem;
+}
+
+.gastos-modal-form .gastos-label {
+  font-size: 0.8rem;
+}
+
+.gastos-modal-form .gastos-input,
+.gastos-modal-form .gastos-select {
+  padding: 0.4rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+.gastos-modal-actions {
+  margin-top: 0.85rem;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.gastos-modal-actions .gastos-btn {
+  padding: 0.45rem 0.85rem;
+  font-size: 0.875rem;
+}
+
+.gastos-categoria-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-weight: 500;
+}
+
+.gastos-categoria-icone {
+  font-size: 1rem;
+}

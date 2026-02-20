@@ -1,0 +1,1 @@
+# Core: segurança e JWT

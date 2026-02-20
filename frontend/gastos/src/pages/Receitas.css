@@ -1,0 +1,260 @@
+.receitas .card-text { color: var(--text-secondary); font-size: 0.9rem; }
+.receitas .card-erro .card-text { color: var(--text-primary); }
+.receitas-form-card { margin-bottom: 1.5rem; }
+.receitas-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .receitas-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .receitas-filtros {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .receitas-busca {
+    min-width: 0;
+    max-width: none;
+  }
+
+  .receitas-select {
+    min-width: 0;
+    max-width: none;
+  }
+
+  .receitas-acoes .receitas-acao span:last-child {
+    display: none;
+  }
+
+  .receitas-modal {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+.receitas-field { display: flex; flex-direction: column; gap: 0.35rem; }
+.receitas-label { font-size: 0.85rem; font-weight: 500; color: var(--text-primary); }
+.receitas-input { padding: 0.5rem 0.65rem; font-size: 0.9rem; border: 1px solid var(--border); border-radius: var(--radius); outline: none; }
+.receitas-input:focus { border-color: var(--sidebar-hover); }
+.receitas-form-actions { display: flex; gap: 0.75rem; margin-top: 1rem; }
+.receitas-btn { padding: 0.5rem 1rem; font-size: 0.9rem; border: none; border-radius: var(--radius); cursor: pointer; }
+.receitas-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.receitas-btn-primary { background: var(--sidebar-bg); color: var(--sidebar-text); }
+.receitas-btn-primary:hover:not(:disabled) { background: var(--sidebar-hover); }
+.receitas-btn-secondary { background: var(--main-bg); color: var(--text-secondary); border: 1px solid var(--border); }
+.receitas-btn-secondary:hover:not(:disabled) { border-color: var(--sidebar-hover); }
+.receitas-tabela-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+  .receitas-tabela-wrap {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+.receitas-tabela {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.receitas-tabela th, .receitas-tabela td { padding: 0.65rem 0.75rem; text-align: left; border-bottom: 1px solid var(--border); }
+.receitas-tabela th { font-weight: 600; color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase; }
+.receitas-valor-col { text-align: right; white-space: nowrap; }
+.receitas-valor-verde { color: #27ae60; }
+.receitas-acoes {
+  white-space: nowrap;
+  padding: 0.5rem 0.25rem 0.5rem 0;
+}
+
+.receitas-acoes .receitas-acao {
+  margin-left: 0.25rem;
+}
+
+.receitas-acao {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  background: transparent;
+  color: var(--text-secondary);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.receitas-acao:first-child {
+  margin-left: 0;
+}
+
+.receitas-acao svg {
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+.receitas-acao-editar:hover {
+  background: rgba(44, 62, 80, 0.08);
+  color: var(--primary);
+}
+
+.receitas-acao-editar:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.receitas-acao-excluir:hover {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+.receitas-acao-excluir:focus-visible {
+  outline: 2px solid var(--danger);
+  outline-offset: 2px;
+}
+
+.receitas-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.receitas-busca {
+  min-width: 220px;
+  flex: 1;
+  max-width: 280px;
+}
+
+.receitas-select {
+  min-width: 140px;
+}
+
+.receitas-total-filtro {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* Modal de edição – compacto, tudo dentro da área do modal */
+.receitas-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 37, 47, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: receitas-modal-fadeIn 0.2s ease;
+}
+
+@keyframes receitas-modal-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.receitas-modal {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 20px 40px rgba(44, 62, 80, 0.2);
+  width: 100%;
+  max-width: 480px;
+  overflow: hidden;
+  animation: receitas-modal-slideIn 0.25s ease;
+}
+
+@keyframes receitas-modal-slideIn {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.receitas-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.receitas-modal-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.receitas-modal-fechar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.receitas-modal-fechar:hover {
+  background: var(--primary-muted);
+  color: var(--text-primary);
+}
+
+.receitas-modal-form {
+  padding: 1rem;
+}
+
+.receitas-modal-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+  margin-bottom: 0.65rem;
+}
+
+.receitas-modal-grid .receitas-field {
+  min-width: 0;
+}
+
+.receitas-modal-form .receitas-field {
+  gap: 0.25rem;
+}
+
+.receitas-modal-form .receitas-label {
+  font-size: 0.8rem;
+}
+
+.receitas-modal-form .receitas-input {
+  padding: 0.4rem 0.5rem;
+  font-size: 0.875rem;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.receitas-modal-actions {
+  margin-top: 0.85rem;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.receitas-modal-actions .receitas-btn {
+  padding: 0.45rem 0.85rem;
+  font-size: 0.875rem;
+}
